@@ -32,16 +32,18 @@ func _ready() -> void:
 
 
 func _increment(type: Coin.COIN_TYPE):
-	if not type == Coin.COIN_TYPE.RED: return
+	if not type == Coin.COIN_TYPE.RED:
+		return
 
 	coin_count += 1
 
 
 func _update_label(do_animation: bool) -> void:
-	label.text = "%d/%d" % [coin_count, max_count] 
+	label.text = "%d/%d" % [coin_count, max_count]
 
 	# The logic underneath this return is purely for the bounce and color modulate animation.
-	if not do_animation: return
+	if not do_animation:
+		return
 
 	label.position.y = -bounce_height
 	label.modulate = bounce_color

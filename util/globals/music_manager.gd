@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-signal music_changed()
+signal music_changed
 
 @export var music: Resource:
 	set(val):
@@ -8,7 +8,6 @@ signal music_changed()
 
 		if not Engine.is_editor_hint():
 			_play()
-
 
 var current_song: Song
 

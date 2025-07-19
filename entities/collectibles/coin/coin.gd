@@ -3,11 +3,10 @@ class_name Coin
 extends Collectible
 ## Base class for collectible coins.
 
-
-enum COIN_TYPE{
-	YELLOW = 0, ## Common yellow coin, adds +1 to the coin counter.
-	BLUE = 1, ## Uncommon blue coin, adds +5 to the coin counter.
-	RED = 2, ## One of the level's red coins. Collect all of them to spawn a Shine Sprite.
+enum COIN_TYPE {
+	YELLOW = 0,  ## Common yellow coin, adds +1 to the coin counter.
+	BLUE = 1,  ## Uncommon blue coin, adds +5 to the coin counter.
+	RED = 2,  ## One of the level's red coins. Collect all of them to spawn a Shine Sprite.
 }
 
 ## Total red coin count in a level.

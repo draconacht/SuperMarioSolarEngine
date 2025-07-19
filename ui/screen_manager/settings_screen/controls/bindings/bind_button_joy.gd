@@ -70,7 +70,7 @@ func _decode_events(encoded_events):
 		if event.begins_with(PREFIX_BUTTON):
 			var input := InputEventJoypadButton.new()
 
-			input.device = device_port 
+			input.device = device_port
 			input.button_index = int(event.trim_prefix(PREFIX_BUTTON)) as JoyButton
 
 			decoded_events.append(input)
@@ -78,7 +78,7 @@ func _decode_events(encoded_events):
 			var event_split = event.trim_prefix(PREFIX_MOTION).split(":")
 			var input := InputEventJoypadMotion.new()
 
-			input.device = device_port 
+			input.device = device_port
 			input.axis = int(event_split[0]) as JoyAxis
 			input.axis_value = float(event_split[1])
 
@@ -130,17 +130,17 @@ func _get_brand_id():
 	var vendor_id = guid.substr(8, 4)
 
 	match vendor_id:
-		"7e05", "d620": # Nintendo
+		"7e05", "d620":  # Nintendo
 			return 0
-		"5e04": # Microsoft
+		"5e04":  # Microsoft
 			return 1
-		"1716", "7264", "4c05", "510a", "ce0f", "ba12": # Sony
+		"1716", "7264", "4c05", "510a", "ce0f", "ba12":  # Sony
 			return 2
-		_: # Unidentified
+		_:  # Unidentified
 			var warning_text: String = (
 				"""Unidentified joypad device or brand in port %d.
-				Update this function and the JOY_BUTTONS array to support it""" %
-				device_port
+				Update this function and the JOY_BUTTONS array to support it"""
+				% device_port
 			)
 
 			push_warning(warning_text)

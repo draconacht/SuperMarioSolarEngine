@@ -16,16 +16,15 @@ func _ready():
 	LocalSettings.connect(&"setting_changed", update_value)
 
 	# Initialise buttons and settings
-	var saved_val: Variant = LocalSettings.load_setting(
-		setting_section, setting_key, _get_default_value()
-	)
+	var saved_val: Variant = LocalSettings.load_setting(setting_section, setting_key, _get_default_value())
 	update_value(setting_key, saved_val)
 	GameState.setting_initialised.emit(setting_key, saved_val)
 
 
 func update_value(key: String, new_value: Variant = null):
 	# If the entered key doesn't relate to the button running this code
-	if key != setting_key: return
+	if key != setting_key:
+		return
 
 	value = new_value
 
@@ -45,5 +44,5 @@ func _update_button():
 
 
 ## Overwritten by the parent class.
-func _get_default_value():
+func _get_default_value() -> Variant:
 	return null

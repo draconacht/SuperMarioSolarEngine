@@ -22,11 +22,7 @@ func _ready():
 
 	current_binds = settings_key_events.duplicate()
 
-	var saved_keys = LocalSettings.load_setting(
-		"Controls",
-		internal_name,
-		_key_to_keycode(settings_key_events)
-	)
+	var saved_keys = LocalSettings.load_setting("Controls", internal_name, _key_to_keycode(settings_key_events))
 
 	var gen_keys: Array[InputEventKey] = []
 

@@ -44,7 +44,8 @@ func _ready():
 	LocalSettings.setting_changed.connect(_setting_changed)
 	GameState.paused.connect(_toggle_color_blur)
 
-	if world_machine == null: return
+	if world_machine == null:
+		return
 
 	_set_player()
 	_set_camera()
@@ -60,8 +61,8 @@ func _process(_delta):
 
 func _input(event: InputEvent):
 	if (
-		(event.is_action_pressed(&"camera_zoom_in") and camera.target_zoom != camera.zoom_min) or
-		(event.is_action_pressed(&"camera_zoom_out") and camera.target_zoom != camera.zoom_max)
+		(event.is_action_pressed(&"camera_zoom_in") and camera.target_zoom != camera.zoom_min)
+		or (event.is_action_pressed(&"camera_zoom_out") and camera.target_zoom != camera.zoom_max)
 	):
 		zoom_blur_player.stop()
 		zoom_blur_player.play(&"camera_focus")

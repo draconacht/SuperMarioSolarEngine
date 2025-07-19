@@ -29,9 +29,9 @@ func _process(_delta: float) -> void:
 	#print(_get_line_segments())
 
 	#for line in _get_line_segments():
-		#var rect := ColorRect.new()
-		#
-		#rect.position = Math.get_closest_point_line(line[0], line[1], cursor_pos)
+	#var rect := ColorRect.new()
+	#
+	#rect.position = Math.get_closest_point_line(line[0], line[1], cursor_pos)
 
 	if not closed:
 		_line_edit_mode()
@@ -81,14 +81,14 @@ func _line_edit_mode():
 
 
 #func _get_line_segments():
-	#var segments: Array = []
+#var segments: Array = []
 #
-	## Minus 1 to avoid an out-of-bounds error.
-	#for point in range(points.size() - 1):
-		#var segment: PackedVector2Array = [points[point], points[point + 1]]
-		#segments.append(segment)
+## Minus 1 to avoid an out-of-bounds error.
+#for point in range(points.size() - 1):
+#var segment: PackedVector2Array = [points[point], points[point + 1]]
+#segments.append(segment)
 #
-	#return segments
+#return segments
 
 
 ## Force rewrites the polygon when a point is removed.[br][br]
@@ -106,11 +106,11 @@ func _remove_point_on_poly(to_be_removed: Node2D):
 ## Return if a point creation input is possible or not.
 func _can_line_edit() -> bool:
 	return (
-		not closed and
-		not hovering_over_button and 
-		Input.is_action_just_pressed(&"select") and 
-		last_click_pos != cursor_pos and
-		_check_not_intersect(points, cursor_pos)
+		not closed
+		and not hovering_over_button
+		and Input.is_action_just_pressed(&"select")
+		and last_click_pos != cursor_pos
+		and _check_not_intersect(points, cursor_pos)
 	)
 
 

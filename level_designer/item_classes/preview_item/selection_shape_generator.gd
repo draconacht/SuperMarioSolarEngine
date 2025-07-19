@@ -4,8 +4,7 @@ extends ResourceGenerator
 ## Generator and editor for selection shapes of editor items.
 
 ## Press to apply the edits made to the shape.
-@export_tool_button("Apply Manual Edit", "CheckBox")
-var edit_action: Callable = _save_edits
+@export_tool_button("Apply Manual Edit", "CheckBox") var edit_action: Callable = _save_edits
 
 ## An [EditorItemData] resource can be dragged here to edit it.
 @export var manual_edit_item: EditorItemData = null:

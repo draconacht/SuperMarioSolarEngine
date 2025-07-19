@@ -15,7 +15,7 @@ extends PlayerState
 @export var speed_cap: float = 8.0
 
 
-# dive_direction is an integer that defines the direction in which 
+# dive_direction is an integer that defines the direction in which
 # the dive will initially send you.
 func _on_enter(dive_direction):
 	if dive_direction != null:
@@ -35,9 +35,9 @@ func _on_enter(dive_direction):
 
 	movement.accelerate(Vector2.RIGHT * movement.facing_direction * x_power, speed_cap)
 
-	# Sprite rotation starts at 0 when neutral, 
+	# Sprite rotation starts at 0 when neutral,
 	# which actually corresponds with 90° or PI / 2.
-	# To get around this problem we use the 
+	# To get around this problem we use the
 	# opposite complement of the velocity angle:
 	# (TAU / 4 - alpha)
 	actor.doll.rotation = TAU / 4 + actor.vel.angle()

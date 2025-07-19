@@ -27,7 +27,7 @@ static func set_win_size(window_scale):
 
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		DisplayServer.window_set_size(window_size)
-	
+
 		var screen_top_left: Vector2i = DisplayServer.screen_get_position(screen)
 
 		# On multi-monitor setups, the screen position is relative to the virtual desktop area.

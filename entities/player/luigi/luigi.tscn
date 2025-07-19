@@ -25,9 +25,9 @@ metadata/_custom_type_script = "uid://dd8oyhd4nllix"
 
 [node name="Luigi" instance=ExtResource("1_jyeyx")]
 
-[node name="Doll" parent="." index="0"]
+[node name="Doll" parent="." index="1"]
 sprite_frames = ExtResource("2_rpjv5")
-animation = &"idle"
+frame = 0
 
 [node name="CrouchSpin" parent="StateManager/Dry/Grounded" index="6"]
 particles = Array[ExtResource("2_yf61k")]([SubResource("Resource_jkn7s")])

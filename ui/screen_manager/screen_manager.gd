@@ -70,6 +70,8 @@ func switch_screen(from: Screen = null, to: Screen = null) -> void:
 
 	current_screen = to
 	to.on_enter()
+
+
 #endregion
 
 

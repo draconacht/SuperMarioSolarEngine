@@ -4,11 +4,7 @@ extends PlayerState
 
 
 func _physics_tick():
-	movement.accelerate(
-		InputManager.get_vec() * movement.swim_accel_step,
-		movement.swim_speed,
-		0.03125
-	)
+	movement.accelerate(InputManager.get_vec() * movement.swim_accel_step, movement.swim_speed, 0.03125)
 	movement.radial_friction(0.125, movement.swim_speed)
 
 

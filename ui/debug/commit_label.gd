@@ -17,16 +17,15 @@ func _ready() -> void:
 	_set_local_sha()
 
 	text = (
-	"""
+		"""
 	RE: 	%s
 	LO: 	%s
 	%s"""
-	% [remote_sha, local_sha, _get_check()]
+		% [remote_sha, local_sha, _get_check()]
 	)
 
 
 func _set_remote_sha() -> void:
-
 	http_request.connect("request_completed", Callable(self, "_on_request_completed"))
 	add_child(http_request)
 
@@ -35,11 +34,8 @@ func _set_remote_sha() -> void:
 
 
 func _on_request_completed(
-		_result: int,
-		response_code: int,
-		_headers: PackedStringArray,
-		body: PackedByteArray
-	) -> void:
+	_result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray
+) -> void:
 	if response_code == 200:
 		var json: Dictionary = JSON.parse_string(body.get_string_from_utf8())
 

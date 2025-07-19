@@ -23,14 +23,14 @@ signal delete_attempted
 @export var axis_lock_x: bool = false:
 	set(value):
 		axis_lock_x = value
-		if is_instance_valid(x_lock): # To avoid reference issues on the first run of code
+		if is_instance_valid(x_lock):  # To avoid reference issues on the first run of code
 			x_lock.visible = value
 ## Locks the axis of this draggable button so it can only move on the y-axis.[br][br]
 ## [i]Note that the rotation of its parent defines the axis, not the global world.[/i]
 @export var axis_lock_y: bool = false:
 	set(value):
 		axis_lock_y = value
-		if is_instance_valid(y_lock): # To avoid reference issues on the first run of code
+		if is_instance_valid(y_lock):  # To avoid reference issues on the first run of code
 			y_lock.visible = value
 
 var held_down: bool
@@ -39,7 +39,7 @@ var hovered_over: bool
 
 
 func _ready() -> void:
-	# To make sure the graphics for the X and Y locks are shown 
+	# To make sure the graphics for the X and Y locks are shown
 	# properly on the first run of the code
 	x_lock.visible = axis_lock_x
 	y_lock.visible = axis_lock_y

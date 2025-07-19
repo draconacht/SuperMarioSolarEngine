@@ -7,6 +7,7 @@ extends Control
 @export var edit_scene: PackedScene
 @export var rec_scene: PackedScene
 
+
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == &"start":
 		anime.play(&"logo_float")

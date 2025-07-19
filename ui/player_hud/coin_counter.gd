@@ -1,7 +1,6 @@
 @tool
 extends Control
 
-
 @export var coin_count: int:
 	set(val):
 		coin_count = clamp(val, 0, INF)
@@ -20,11 +19,12 @@ var call_count: int = 0
 
 func _ready() -> void:
 	var tree: SceneTree = get_tree()
-	
+
 	if not tree.has_user_signal(&"coin_collected"):
 		tree.add_user_signal(&"coin_collected")
-	
+
 	tree.connect(&"coin_collected", _increment)
+
 
 func _increment(type: Coin.COIN_TYPE):
 	match type:

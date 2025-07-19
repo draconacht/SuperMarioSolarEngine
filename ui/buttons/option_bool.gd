@@ -16,5 +16,5 @@ func _update_button():
 	text = ON_TEXT if value else OFF_TEXT
 
 
-func _get_default_value() -> bool:
+func _get_default_value() -> Variant:
 	return default_value

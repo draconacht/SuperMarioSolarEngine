@@ -60,9 +60,7 @@ func setup(setup_port: int, setup_player: int):
 	player = setup_player
 
 	var saved_events = LocalSettings.load_setting(
-		input_device_name + " Bindings (Player: %d)" % player,
-		internal_name,
-		_encode_events(filtered_settings_events)
+		input_device_name + " Bindings (Player: %d)" % player, internal_name, _encode_events(filtered_settings_events)
 	)
 
 	_update_input(_decode_events(saved_events))
@@ -126,6 +124,8 @@ func _check_outside_deadzone(_event: InputEvent) -> bool:
 ## E.g. normalising joystick input.
 func _clean_input(input: InputEvent) -> InputEvent:
 	return input
+
+
 #endregion
 
 
@@ -148,9 +148,7 @@ func _update_input(new_binds: Array):
 		InputMap.action_add_event(internal_name, bind)
 
 	LocalSettings.change_setting(
-		input_device_name + " Bindings (Player: %d)" % player,
-		internal_name,
-		_encode_events(new_binds)
+		input_device_name + " Bindings (Player: %d)" % player, internal_name, _encode_events(new_binds)
 	)
 
 	current_binds = new_binds.duplicate()

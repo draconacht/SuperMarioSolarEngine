@@ -26,10 +26,6 @@ func _process(_delta):
 	timer = max(timer - 1, 0)
 
 	if timer == 0:
-		region_rect.position.x = wrap(
-			region_rect.position.x + region_rect.size.x,
-			0,
-			frame_count * region_rect.size.x
-		)
+		region_rect.position.x = wrap(region_rect.position.x + region_rect.size.x, 0, frame_count * region_rect.size.x)
 
 		timer = animation_delay

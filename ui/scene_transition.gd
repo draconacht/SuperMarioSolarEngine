@@ -6,7 +6,7 @@ extends Control
 ## Emitted when a transition overlay has finished animating.
 signal transition_finished
 
-enum Overlay {PLAIN, CIRCULAR}
+enum Overlay { PLAIN, CIRCULAR }
 
 @export var preview_overlay: Overlay
 @export_tool_button("Preview", "Play") var preview_action = _preview
@@ -18,30 +18,29 @@ enum Overlay {PLAIN, CIRCULAR}
 var from: Overlay
 var to: Overlay
 
-
 ### to: What scene to transition into.
 ### from_overlay: Which visual overlay gets used for the transition from the previous scene.
 ### to_overlay: Which visual overlay gets used for the transition to the new scene.
 ### overlay_speed: How fast the overlay animates. (in seconds)
 ### fake_delay: How many seconds are inbetween the scene transitions.
-### Can be used to create a fake loading effect. 
+### Can be used to create a fake loading effect.
 #func _init(
-	#to_scene: PackedScene,
-	#between_logic: Callable,
-	#from_overlay: Overlay = Overlay.PLAIN,
-	#to_overlay: Overlay = Overlay.PLAIN,
-	#overlay_speed: float = 0.2,
+#to_scene: PackedScene,
+#between_logic: Callable,
+#from_overlay: Overlay = Overlay.PLAIN,
+#to_overlay: Overlay = Overlay.PLAIN,
+#overlay_speed: float = 0.2,
 #) -> void:
 #
-	#from = from_overlay
-	#to = to_overlay
+#from = from_overlay
+#to = to_overlay
 
 
 func _plain_transition(speed: float) -> void:
 	plain_overlay.visible = true
 
 	var tween := create_tween()
-	
+
 	if plain_overlay.color.a == 1:
 		tween.tween_property(plain_overlay, "color:a", 0, speed)
 	else:
@@ -55,7 +54,7 @@ func _circ_transition(speed: float) -> void:
 	circ_overlay.visible = true
 
 	var tween := create_tween()
-	
+
 	if circ_overlay.material.get_shader_parameter("circle_size") == 0.0:
 		tween.tween_property(circ_overlay.material, "shader_parameter/circle_size", 1.05, speed)
 	else:

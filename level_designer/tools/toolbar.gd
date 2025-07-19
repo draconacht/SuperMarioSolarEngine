@@ -22,9 +22,7 @@ func _ready():
 
 func _update_mouse_icon():
 	if active_tool != null and editor.cursor_in_preview_field():
-		Input.set_custom_mouse_cursor(
-			active_tool.mouse_icon, active_tool.mouse_shape, active_tool.hotspot
-		)
+		Input.set_custom_mouse_cursor(active_tool.mouse_icon, active_tool.mouse_shape, active_tool.hotspot)
 	else:
 		Util.set_cursor_to_default()
 

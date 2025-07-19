@@ -10,14 +10,10 @@ var debug_toggle_collision_shapes: bool = false
 var fullscreened: bool = false
 
 var buses: Dictionary[StringName, AudioBus] = {
-	&"Master":
-		AudioBus.new(&"Master", "master_volume"),
-	&"Music":
-		AudioBus.new(&"Music", "bgm_volume"),
-	&"SFX":
-		AudioBus.new(&"SFX", "sfx_volume"),
-	&"Voice":
-		AudioBus.new(&"Voice", "voice_volume")
+	&"Master": AudioBus.new(&"Master", "master_volume"),
+	&"Music": AudioBus.new(&"Music", "bgm_volume"),
+	&"SFX": AudioBus.new(&"SFX", "sfx_volume"),
+	&"Voice": AudioBus.new(&"Voice", "voice_volume")
 }
 
 
@@ -37,12 +33,12 @@ func _ready():
 
 
 #func _process(_delta: float) -> void:
-	#print(get_viewport().gui_get_focus_owner())
+#print(get_viewport().gui_get_focus_owner())
 
 
 func _unhandled_input(event):
 	if event.is_action_pressed(&"mute"):
-		LocalSettings.change_setting("Audio", "music_muted",!buses[&"Music"].muted)
+		LocalSettings.change_setting("Audio", "music_muted", !buses[&"Music"].muted)
 
 	# Toggle between fullscreen and last non-fullscreen window scale
 	if event.is_action_pressed(&"fullscreen"):
@@ -59,7 +55,7 @@ func _unhandled_input(event):
 	if event.is_action_pressed(&"debug_toggle"):
 		debug_toggle = !debug_toggle
 		LocalSettings.change_setting("Developer", "debug_toggle", debug_toggle)
-	
+
 	if event.is_action_pressed(&"debug_toggle_collision_shapes"):
 		debug_toggle_collision_shapes = !debug_toggle_collision_shapes
 		LocalSettings.change_setting("Developer", "debug_toggle_collision_shapes", debug_toggle_collision_shapes)
@@ -71,7 +67,7 @@ func _setting_changed(key: String, value: Variant):
 		"v_sync":
 			DisplayServer.window_set_vsync_mode(value)
 		"fps_cap":
-			Engine.max_fps = [0, 30, 60, 120][value] # 0:INF, 1:30, 2:60, 3: 120
+			Engine.max_fps = [0, 30, 60, 120][value]  # 0:INF, 1:30, 2:60, 3: 120
 		"scale":
 			WindowSizer.set_win_size(value)
 		# AUDIO
@@ -87,17 +83,16 @@ func pause_toggle():
 func is_paused() -> bool:
 	return get_tree().paused
 
-
 #func sync_animation(sprite: AnimatedSprite2D):
-	#if not sprite: return
+#if not sprite: return
 #
-	#var frame_count: int = sprite.sprite_frames.get_frame_count(sprite.animation)
-	#sprite.frame = wrapi(get_tree().get_frame(), 0, frame_count - 1)
+#var frame_count: int = sprite.sprite_frames.get_frame_count(sprite.animation)
+#sprite.frame = wrapi(get_tree().get_frame(), 0, frame_count - 1)
 #
-	#var t = 0
-	#while sprite and t < 1/sprite.sprite_frames.get_animation_speed(sprite.animation):
-		#t += get_process_delta_time()
-		#await Engine.get_main_loop().process_frame
+#var t = 0
+#while sprite and t < 1/sprite.sprite_frames.get_animation_speed(sprite.animation):
+#t += get_process_delta_time()
+#await Engine.get_main_loop().process_frame
 #
-	#if not sprite: return
-	#sync_animation(sprite)
+#if not sprite: return
+#sync_animation(sprite)

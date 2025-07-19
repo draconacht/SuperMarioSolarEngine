@@ -24,7 +24,7 @@ const ROTATION: float = TAU / 4
 		queue_redraw()
 
 @export_category("References")
-@export var outline: Button 
+@export var outline: Button
 @export var label: Label
 
 
@@ -50,7 +50,7 @@ func _draw_seperators(center: Vector2, radius: float, step: float) -> void:
 
 		draw_line(
 			center,
-			center + Vector2(cos(angle),sin(angle)) * radius,
+			center + Vector2(cos(angle), sin(angle)) * radius,
 			Color.BLACK,
 			2,
 		)
@@ -61,12 +61,12 @@ func _draw_sectors(center: Vector2, radius: float, step: float) -> void:
 
 
 func draw_circle_arc_poly(
-		center: Vector2,
-		radius: float,
-		angle_from: float,
-		angle_to: float,
-		color: Color,
-	) -> void:
+	center: Vector2,
+	radius: float,
+	angle_from: float,
+	angle_to: float,
+	color: Color,
+) -> void:
 	var nb_points: int = 32
 
 	var points_arc := PackedVector2Array()
@@ -94,7 +94,7 @@ func _choose_slice_color(slice: float) -> Color:
 		colors = [Color.RED, Color.AQUA]
 	# Thresholds and associated colors if multiple of 3:
 	elif max_hp % 3 == 0:
-		thresholds = [100 * (1/3.0), 100 * (2/3.0), 100]  
+		thresholds = [100 * (1 / 3.0), 100 * (2 / 3.0), 100]
 		colors = [Color.RED, Color.YELLOW, Color.AQUA]
 	# Thresholds and associated colors if multiple of 2:
 	else:

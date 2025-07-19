@@ -33,11 +33,7 @@ func _ready():
 
 	_update_header()
 
-	var saved_controller: String = LocalSettings.load_setting(
-		"Controller (Player: %d)" % player,
-		"name",
-		""
-	)
+	var saved_controller: String = LocalSettings.load_setting("Controller (Player: %d)" % player, "name", "")
 
 	for id in Input.get_connected_joypads():
 		if saved_controller == Input.get_joy_name(id):

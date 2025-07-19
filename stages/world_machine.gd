@@ -85,7 +85,7 @@ func deload_level():
 	# Delete the level and UI.
 	level_node.queue_free()
 	ui_node.queue_free()
-	
+
 	# Reset static variables.
 	Coin.total_reds = 0
 

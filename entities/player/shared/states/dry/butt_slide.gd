@@ -164,7 +164,7 @@ func _modify_speed(floor_normal: Vector2):
 		# Holding the opposite direction of the slope (decel)
 		elif input_dir == -slope_dir:
 			target_speed = accel_ease * min_speed
-		
+
 	slide_decel = max(slide_decel, 0.1)
 
 	# Accelerate down the slope
@@ -218,9 +218,7 @@ func _set_appropriate_anim():
 		actor.doll.play(animation_airborne)
 		return
 	if input_dir != 0:
-		actor.doll.play(
-			animation_forward if input_dir == movement.facing_direction else animation_backward
-		)
+		actor.doll.play(animation_forward if input_dir == movement.facing_direction else animation_backward)
 		return
 	actor.doll.play(animation_data.animation)
 

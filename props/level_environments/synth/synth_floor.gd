@@ -10,7 +10,6 @@ const LINE_H_EXP: float = 1.5
 
 const LINE_WIDTH_PX: int = 2
 
-
 var cam_x: float
 
 @onready var environment: LevelEnvironment = owner
@@ -30,15 +29,9 @@ func _draw_horizontal_lines():
 	var progress: float = 0.0
 
 	for i in LINE_H_COUNT:
-		var line_h_pos_y: float = (pow(progress, LINE_H_EXP) 
-		* size.y / pow(LINE_H_COUNT, LINE_H_EXP))
+		var line_h_pos_y: float = pow(progress, LINE_H_EXP) * size.y / pow(LINE_H_COUNT, LINE_H_EXP)
 
-		draw_line(
-			Vector2(0, line_h_pos_y + 0.5),
-			Vector2(size.x, line_h_pos_y + 0.5),
-			line_color,
-			LINE_WIDTH_PX
-		)
+		draw_line(Vector2(0, line_h_pos_y + 0.5), Vector2(size.x, line_h_pos_y + 0.5), line_color, LINE_WIDTH_PX)
 
 		progress += 1
 
@@ -49,9 +42,4 @@ func _draw_vertical_lines():
 	for i in LINE_V_COUNT:
 		var line_v_pos_x: float = line_v_gap * i + wrap(cam_x, 0.0, line_v_gap)
 
-		draw_line(
-			Vector2(line_v_pos_x, 0),
-			Vector2(line_v_pos_x * 2 - size.x / 2, size.y),
-			line_color,
-			LINE_WIDTH_PX
-		)
+		draw_line(Vector2(line_v_pos_x, 0), Vector2(line_v_pos_x * 2 - size.x / 2, size.y), line_color, LINE_WIDTH_PX)

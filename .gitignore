@@ -3,3 +3,8 @@
 *.tmp
 *.exe
 *.pck
+addons/*
+!addons/.editorconfig
+.addons/*
+
+.venv

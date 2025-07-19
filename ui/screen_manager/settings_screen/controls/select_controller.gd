@@ -13,11 +13,7 @@ func _ready():
 
 func _update_list(device_port: int, connected: bool):
 	var joypad_name: String = Input.get_joy_name(device_port)
-	var saved_controller: String = LocalSettings.load_setting(
-		"Controller (Player: %d)" % options.player,
-		"name",
-		""
-	)
+	var saved_controller: String = LocalSettings.load_setting("Controller (Player: %d)" % options.player, "name", "")
 
 	if connected:
 		add_item(joypad_name, device_port)
@@ -51,11 +47,7 @@ func _update_button():
 func _on_item_selected(index):
 	var joypad_name: String = Input.get_joy_name(index)
 
-	LocalSettings.change_setting(
-		"Controller (Player: %d)" % options.player,
-		"name",
-		joypad_name
-	)
+	LocalSettings.change_setting("Controller (Player: %d)" % options.player, "name", joypad_name)
 
 	options.device_port = index
 	options.update_buttons()

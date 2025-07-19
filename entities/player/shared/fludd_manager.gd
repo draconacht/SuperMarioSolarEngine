@@ -2,7 +2,7 @@ class_name FluddManager
 extends Node
 ## Handles communication between PlayerStates in regards to FLUDD.
 
-enum Nozzle{
+enum Nozzle {
 	NONE,
 	HOVER,
 	ROCKET,
@@ -14,7 +14,7 @@ var available_nozzles: Array[Nozzle] = [
 	Nozzle.HOVER,
 	#Nozzle.ROCKET,
 	#Nozzle.TURBO,
-	]
+]
 
 static var active_nozzle: Nozzle = Nozzle.NONE
 

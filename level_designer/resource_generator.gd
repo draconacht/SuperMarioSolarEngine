@@ -4,8 +4,7 @@ extends Node
 ## Base class for toolscripts that can be used to auto-generate resources.
 
 ## Press to refresh and re-process all related resources.
-@export_tool_button("Generate Missing Resources", "Script")
-var refresh_action: Callable = _refresh
+@export_tool_button("Generate Missing Resources", "Script") var refresh_action: Callable = _refresh
 
 
 ## Refresh and re-process all related resources.

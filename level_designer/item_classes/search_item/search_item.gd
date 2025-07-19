@@ -13,13 +13,13 @@ var hotbar: Hotbar
 
 func create_item(data: EditorItemData):
 	item_icon.texture = data.icon_texture
-	
+
 	# Apply half-pixel offset to ensure the texture is on an integer position.
 	var tex_size = data.icon_texture.get_size()
 	var tex_offset = tex_size.posmod(2.0) * 0.5
 	item_icon.offset_left = tex_offset.x
 	item_icon.offset_top = tex_offset.y
-	
+
 	item_data = data
 
 

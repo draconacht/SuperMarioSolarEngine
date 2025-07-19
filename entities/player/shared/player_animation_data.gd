@@ -107,9 +107,7 @@ var preview_fludd: bool = false:
 		preview_fludd = val
 
 		if not is_instance_valid(fludd_f) and not is_instance_valid(fludd_b):
-			printerr(
-			"Missing FLUDD sprite! Make sure you have 2 seperate sprites for a front and back layer of FLUDD."
-			)
+			printerr("Missing FLUDD sprite! Make sure you have 2 seperate sprites for a front and back layer of FLUDD.")
 			return
 
 		fludd_b.visible = val
@@ -157,10 +155,10 @@ func setup() -> void:
 	if not Engine.is_editor_hint():
 		return
 
-	var actor: Player = get_local_scene()
+	var actor: Node = get_local_scene()
 
-	#if not actor is Player:
-		#return
+	if not is_instance_of(actor, Player):
+		return
 
 	doll = actor.doll
 	fludd_f = actor.fludd_f
@@ -169,9 +167,7 @@ func setup() -> void:
 	animation_list = doll.sprite_frames.get_animation_names()
 
 	if fludd_f.sprite_frames.get_animation_names() != fludd_b.sprite_frames.get_animation_names():
-		printerr(
-		"FLUDD animations don't match! Check the sprite frame resource in both AnimatedSprite2Ds."
-		)
+		printerr("FLUDD animations don't match! Check the sprite frame resource in both AnimatedSprite2Ds.")
 	else:
 		fludd_animation_list = fludd_f.sprite_frames.get_animation_names()
 
@@ -198,41 +194,47 @@ func _get_property_list() -> Array[Dictionary]:
 	]
 
 	if preview:
-		properties.append_array(
+		(
+			properties
+			. append_array(
+				[
+					{
+						"name": "preview_fludd",
+						"type": TYPE_BOOL,
+						"usage": PROPERTY_USAGE_DEFAULT,
+					},
+				]
+			)
+		)
+
+	(
+		properties
+		. append_array(
 			[
 				{
-					"name": "preview_fludd",
-					"type": TYPE_BOOL,
+					"name": "Frame Specifications (Frame %d)" % frame,
+					"type": TYPE_NIL,
+					"usage": PROPERTY_USAGE_GROUP,
+				},
+				{
+					"name": "frame_offset",
+					"type": TYPE_VECTOR2I,
+					"usage": PROPERTY_USAGE_DEFAULT,
+				},
+				{
+					"name": "fludd_animation",
+					"type": TYPE_STRING,
+					"hint": PROPERTY_HINT_ENUM,
+					"hint_string": "rot_y000",
+					"usage": PROPERTY_USAGE_DEFAULT,
+				},
+				{
+					"name": "fludd_offset",
+					"type": TYPE_VECTOR2I,
 					"usage": PROPERTY_USAGE_DEFAULT,
 				},
 			]
 		)
-
-	properties.append_array(
-		[
-			{
-				"name": "Frame Specifications (Frame %d)" % frame,
-				"type": TYPE_NIL,
-				"usage": PROPERTY_USAGE_GROUP,
-			},
-			{
-				"name": "frame_offset",
-				"type": TYPE_VECTOR2I,
-				"usage": PROPERTY_USAGE_DEFAULT,
-			},
-			{
-				"name": "fludd_animation",
-				"type": TYPE_STRING,
-				"hint": PROPERTY_HINT_ENUM,
-				"hint_string": "rot_y000",
-				"usage": PROPERTY_USAGE_DEFAULT,
-			},
-			{
-				"name": "fludd_offset",
-				"type": TYPE_VECTOR2I,
-				"usage": PROPERTY_USAGE_DEFAULT,
-			},
-		]
 	)
 
 	return properties

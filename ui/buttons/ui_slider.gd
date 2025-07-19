@@ -48,11 +48,11 @@ extends Control
 			_set_disable(disabled)
 
 #@export var ticked: bool = false:
-	#set(val):
-		#ticked = val
+#set(val):
+#ticked = val
 #
-		#if is_instance_valid(slider):
-			#_update_ticks()
+#if is_instance_valid(slider):
+#_update_ticks()
 
 @export_category("References")
 @export var slider: HSlider
@@ -72,10 +72,10 @@ func _gui_input(event):
 
 
 #func _update_ticks():
-	#if ticked == true:
-		#slider.tick_count = round(size.x / 8)
-	#else:
-		#slider.tick_count = 0
+#if ticked == true:
+#slider.tick_count = round(size.x / 8)
+#else:
+#slider.tick_count = 0
 
 
 # This function is called when the slider is moved,
@@ -89,7 +89,7 @@ func _update_slider(new_value: float, play_sfx: bool) -> void:
 
 ## Tries to play the tick sound effect if the conditions are met.
 func _try_sfx():
-	# If not playing on ready, and no sound effects are 
+	# If not playing on ready, and no sound effects are
 	# playing in the UI audio bus:
 	if get_tree().get_nodes_in_group(&"UI").is_empty():
 		SFX.play_sfx(tick_sound, &"UI", self)

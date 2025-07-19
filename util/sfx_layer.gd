@@ -51,6 +51,6 @@ func play_sfx_at(node: Node):
 	if repeat_timer.time_left <= 0:
 		SFX.play_sfx(new_pick, bus, node)
 		last_pick = new_pick
-		
+
 		if repeat_delay:
 			repeat_timer = node.get_tree().create_timer(repeat_delay)

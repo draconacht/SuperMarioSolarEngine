@@ -13,9 +13,7 @@ enum Category {
 }
 
 ## Preview item scene; can be instanced in order to create a preview of this item.
-const PREVIEW_ITEM: PackedScene = preload(
-	"res://level_designer/item_classes/preview_item/preview_item.tscn"
-)
+const PREVIEW_ITEM: PackedScene = preload("res://level_designer/item_classes/preview_item/preview_item.tscn")
 
 ## Icon texture that represents this item.
 @export var icon_texture: Texture2D

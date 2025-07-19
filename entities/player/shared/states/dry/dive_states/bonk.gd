@@ -32,9 +32,7 @@ func _subsequent_ticks():
 func _physics_tick():
 	rotation_timer = min(rotation_timer + 1, rotation_time)
 
-	actor.doll.rotation = (
-		_rotation_math(rotation_timer / rotation_time) * -TAU / 8 * movement.facing_direction
-	)
+	actor.doll.rotation = (_rotation_math(rotation_timer / rotation_time) * -TAU / 8 * movement.facing_direction)
 
 	if rotation_timer == rotation_time:
 		finished_rotating = true

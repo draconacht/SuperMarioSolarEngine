@@ -147,7 +147,7 @@ func accelerate(add_vel: Vector2, cap: float, angular_friction: float = 0) -> vo
 		return
 
 	var direction = add_vel.normalized()
-	
+
 	var speed = actor.vel.dot(direction)
 	var speed_step = add_vel.length()
 
@@ -158,7 +158,7 @@ func accelerate(add_vel: Vector2, cap: float, angular_friction: float = 0) -> vo
 
 	# Break if less than zero to avoid deceleration
 	speed_step = max(speed_step, 0)
-	
+
 	# Apply the speed in the correct direction
 	var speed_step_vec: Vector2 = speed_step * direction
 
@@ -215,9 +215,7 @@ func move_x(accel_val: float, should_flip: bool, speed_cap: float = max_speed):
 
 
 ## Handles movement on the X axis for joystick analog inputs.
-func move_x_analog(
-	accel_val: Variant, should_flip: bool, friction_val: Variant = 0.0, speed_cap: float = max_speed
-):
+func move_x_analog(accel_val: Variant, should_flip: bool, friction_val: Variant = 0.0, speed_cap: float = max_speed):
 	var input: float = InputManager.get_x()
 
 	var normalised_input: float = sign(input)

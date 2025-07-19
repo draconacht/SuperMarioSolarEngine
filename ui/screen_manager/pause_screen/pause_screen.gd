@@ -35,7 +35,7 @@ func _on_reset_pressed() -> void:
 
 
 func _on_action_guide_pressed() -> void:
-	pass # Replace with function body.
+	pass  # Replace with function body.
 
 
 func _on_options_pressed() -> void:

@@ -15,7 +15,7 @@ func _physics_tick():
 	movement.move_x_analog(movement.air_accel_step, true)
 
 
-func _trans_rules():
+func _trans_rules() -> Variant:
 	if movement.can_spin() and input.buffered_input(&"spin"):
 		return &"Spin"
 

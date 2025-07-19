@@ -7,7 +7,8 @@ extends VBoxContainer
 
 func _ready():
 	var wm: WorldMachine = owner.world_machine
-	if wm == null: return
+	if wm == null:
+		return
 
 	var level: Level = wm.level_node
 

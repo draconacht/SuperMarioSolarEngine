@@ -29,7 +29,7 @@ func _physics_tick():
 	if current_frame != last_frame:
 		for frame in footstep_frames:
 			if frame == current_frame:
-				particles[0].emit_at(actor) # Emit the first particle (dust kick) every footstep.
+				particles[0].emit_at(actor)  # Emit the first particle (dust kick) every footstep.
 				_play_footstep_sfx()
 
 	last_frame = current_frame

@@ -1,0 +1,7 @@
+{
+  "files.exclude": {
+    //"**/*.tscn": true,
+    "addons/**": true,
+    "**/*.gd.uid": true
+  }
+}

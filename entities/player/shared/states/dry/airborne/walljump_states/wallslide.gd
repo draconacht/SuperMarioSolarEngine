@@ -23,16 +23,15 @@ func _subsequent_ticks():
 	movement.apply_gravity(1, gravity_friction)
 
 	var offset_hand := Vector2(
-		particles[0].particle_offset.x * movement.facing_direction,
-		particles[0].particle_offset.y
+		particles[0].particle_offset.x * movement.facing_direction, particles[0].particle_offset.y
 	)
 	particles[0].emit_at(actor, offset_hand)
 
 	var offset_foot := Vector2(
-		particles[1].particle_offset.x * movement.facing_direction,
-		particles[1].particle_offset.y
+		particles[1].particle_offset.x * movement.facing_direction, particles[1].particle_offset.y
 	)
 	particles[1].emit_at(actor, offset_foot)
+
 
 func _trans_rules():
 	if input.buffered_input(&"spin"):

@@ -1,7 +1,6 @@
 @tool
 extends HBoxContainer
 
-
 @export_subgroup("Practical", "p_")
 ## The action name as defined in the project's [InputMap].
 @export var p_action_name: StringName:

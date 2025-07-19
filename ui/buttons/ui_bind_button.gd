@@ -11,7 +11,7 @@ extends UIButton
 ## In the [OptionsScreen], this is overwritten by the [BindSetting] value of the same name.
 @export var parsable_events: Array[InputEvent]
 ## Maximum amount of binds this action can have at once.
-@export_range(0, 100, 1,"hide_slider") var max_binds: int
+@export_range(0, 100, 1, "hide_slider") var max_binds: int
 ## Sound effect that plays when an input gets denied.
 @export var deny_sfx: AudioStreamWAV
 
@@ -47,9 +47,7 @@ func _ready() -> void:
 	# If saved data is found, set the binding to that.
 	if LocalSettings.has_setting("Keyboard Bindings (Player: %d)" % 0, action_name):
 		var saved_data: PackedStringArray = LocalSettings.load_setting(
-			"Keyboard Bindings (Player: %d)" % 0,
-			action_name,
-			PackedStringArray()
+			"Keyboard Bindings (Player: %d)" % 0, action_name, PackedStringArray()
 		)
 
 		for event_name: String in saved_data:
@@ -107,11 +105,7 @@ func _add_input(event: InputEvent, event_name: String) -> void:
 	for filtered_event in filtered_events:
 		event_to_string.append(IconMap.get_filtered_name(filtered_event))
 
-	LocalSettings.change_setting(
-		"Keyboard Bindings (Player: %d)" % 0,
-		action_name,
-		event_to_string
-	)
+	LocalSettings.change_setting("Keyboard Bindings (Player: %d)" % 0, action_name, event_to_string)
 
 
 ## Adds the icon of the binding to the button.
@@ -135,11 +129,7 @@ func _clear() -> void:
 	for bound_event in InputMap.action_get_events(action_name):
 		InputMap.action_erase_event(action_name, bound_event)
 
-	LocalSettings.change_setting(
-		"Keyboard Bindings (Player: %d)" % 0,
-		action_name,
-		PackedStringArray()
-	)
+	LocalSettings.change_setting("Keyboard Bindings (Player: %d)" % 0, action_name, PackedStringArray())
 
 
 func _reset_to_default() -> void:
@@ -186,7 +176,7 @@ func _on_pressed() -> void:
 
 	timer.start()
 
-	while(awaiting_input):
+	while awaiting_input:
 		text = "Awaiting input (%d)" % ceil(timer.time_left)
 		awaiting_input = timer.time_left != 0
 

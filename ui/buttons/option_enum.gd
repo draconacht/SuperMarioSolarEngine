@@ -16,5 +16,5 @@ func _update_button():
 	text = options[value]
 
 
-func _get_default_value() -> int:
+func _get_default_value() -> Variant:
 	return default_value

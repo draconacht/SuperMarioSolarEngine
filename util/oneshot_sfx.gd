@@ -3,7 +3,7 @@ extends Resource
 ## Utility class for creating and destroying a singular sound effect
 ## using a temporary [AudioStreamPlayer]. [br]
 ##
-## A sound effect gets assigned to 2 groups, one representing all SFX played by 
+## A sound effect gets assigned to 2 groups, one representing all SFX played by
 ## the same audio bus, and one for all SFX played by the caller node.
 ## The names of these groups are [code]<bus name>[/code] and
 ## [code]<node name>/sfx[/code] respectively.
@@ -12,12 +12,12 @@ extends Resource
 ## Creates an [AudioStreamPlayer], assigns the corresponding data,
 ## adds it to node, then destroys it when finished.
 static func play_sfx(
-		stream: AudioStream,
-		bus: StringName,
-		node: Node,
-		volume: float = 0.0,
-		pitch: float = 1.0,
-	) -> void:
+	stream: AudioStream,
+	bus: StringName,
+	node: Node,
+	volume: float = 0.0,
+	pitch: float = 1.0,
+) -> void:
 	if not node.is_inside_tree() or stream == null:
 		return
 

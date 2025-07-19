@@ -1,6 +1,5 @@
 extends Control
 
-
 @export var actor: Player
 
 @export var camera: Camera2D

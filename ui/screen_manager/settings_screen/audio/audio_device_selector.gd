@@ -1,6 +1,6 @@
 extends UISelector
 
-signal audio_output_list_changed()
+signal audio_output_list_changed
 
 @export var speaker_label: Label
 
@@ -85,6 +85,7 @@ func _on_item_selected(index):
 
 
 func _setting_updated(key: String, new_value: Variant = null):
-	if key != "device": return
+	if key != "device":
+		return
 
 	selected = get_item_index(audio_device_list.find(new_value))
